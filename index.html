@@ -7,416 +7,937 @@
   <meta name="description" content="Bridging Uganda and the UAE through curated safaris, ethical trade, and legacy partnerships." />
   <meta name="keywords" content="Uganda safaris, UAE trade, ethical sourcing, gorilla trekking, Dubai commerce, African exports, luxury travel Uganda">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/brand/favicon.png">
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Royal Connect Africa | Uganda ↔ UAE">
   <meta property="og:description" content="Curated journeys, ethical trade, and legacy partnerships between Uganda and the UAE.">
   <meta property="og:image" content="/assets/images/africa-elephant.jpg">
   <meta property="og:url" content="https://aftrica.tours">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#4a1415">
+  <meta name="theme-color" content="#1a0f06">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Icons (UMD build required for browser globals) -->
+  <!-- Icons (UMD build) -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
-  <!-- Markdown Parser for AI Output -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-  <!-- Tailwind CDN (replace with compiled CSS for prod) -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            royal: {
-              maroon: '#4a1415',
-              gold: '#b3914d',
-              emerald: '#1e3814',
-              sand: '#f2f0eb',
-              ink: '#121212',
-              light: '#faf9f6'
-            }
+            earth:  '#1a0f06',
+            bark:   '#2d1a0a',
+            clay:   '#8b4513',
+            terra:  '#c1622a',
+            sand:   '#d4a853',
+            gold:   '#e8c870',
+            sage:   '#4a7c59',
+            cream:  '#f5ede0',
+            muted:  '#9a8070',
           },
           fontFamily: {
-            sans: ['Lato', 'sans-serif'],
-            display: ['Montserrat', 'sans-serif'],
+            serif:   ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans:    ['Outfit', 'sans-serif'],
           },
-          animation: {
-            'scroll': 'scroll 40s linear infinite',
-            'fade-in': 'fadeIn 1s ease-out forwards',
-            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-          },
-          keyframes: {
-            scroll: {
-              '0%': { transform: 'translateX(0)' },
-              '100%': { transform: 'translateX(-50%)' },
-            },
-            fadeIn: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            }
-          }
         }
       }
     }
   </script>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles/main.css">
-</head>
-<body class="bg-royal-light text-royal-ink font-sans antialiased selection:bg-royal-maroon selection:text-white">
+  <style>
+    :root {
+      --earth:  #1a0f06;
+      --bark:   #2d1a0a;
+      --clay:   #8b4513;
+      --terra:  #c1622a;
+      --sand:   #d4a853;
+      --gold:   #e8c870;
+      --sage:   #4a7c59;
+      --cream:  #f5ede0;
+      --warm:   #faf6f0;
+      --muted:  #9a8070;
+      --text:   #2a1a0e;
+    }
 
-  <!-- Navigation -->
-  <nav class="fixed w-full z-50 glass-nav transition-all duration-300" aria-label="Primary">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <!-- Logo -->
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full border-2 border-royal-gold overflow-hidden bg-white shadow-sm flex items-center justify-center relative">
-          <img src="assets/brand/rca-logo.png"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-               alt="RCA Logo"
-               class="w-full h-full object-cover absolute inset-0">
-          <div style="display:none" class="w-full h-full bg-royal-maroon text-royal-gold flex items-center justify-center font-display font-bold text-xl">R</div>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--warm); color: var(--text); font-family: 'Outfit', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+    /* Noise texture */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 999; opacity: 0.35;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 900;
+      padding: 20px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(26,15,6,0);
+      transition: background 0.4s, padding 0.3s, backdrop-filter 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(26,15,6,0.94);
+      padding: 14px 48px;
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(232,200,112,0.08);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 600;
+      color: var(--gold); letter-spacing: 0.06em;
+      text-decoration: none; display: flex; align-items: center; gap: 12px;
+    }
+    .nav-logo-mark {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(232,200,112,0.4);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .nav-logo-mark img { width: 100%; height: 100%; object-fit: cover; }
+    .nav-logo-mark .fallback {
+      font-size: 16px; font-weight: 600; color: var(--gold);
+      display: none;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(245,237,224,0.7); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: transparent;
+      border: 1px solid rgba(232,200,112,0.45);
+      color: var(--gold) !important;
+      padding: 8px 22px; border-radius: 1px;
+      transition: background 0.2s !important;
+      opacity: 1 !important;
+    }
+    .nav-cta:hover { background: rgba(232,200,112,0.1) !important; }
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      position: relative; display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 65% 25%, rgba(193,98,42,0.32) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 15% 85%, rgba(74,124,89,0.18) 0%, transparent 55%),
+        linear-gradient(160deg, rgba(26,15,6,0.92) 0%, rgba(45,26,10,0.97) 100%);
+    }
+    .hero-photo {
+      position: absolute; inset: 0;
+      z-index: 0;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; opacity: 0.22; }
+    .hero-glow {
+      position: absolute; inset: 0; z-index: 1;
+      background:
+        radial-gradient(ellipse 80% 60% at 65% 25%, rgba(193,98,42,0.28) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 15% 85%, rgba(74,124,89,0.15) 0%, transparent 55%),
+        rgba(26,15,6,0.55);
+    }
+    .hero-pattern {
+      position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+      width: 560px; height: 560px; border-radius: 50%; z-index: 2;
+      border: 1px solid rgba(232,200,112,0.07);
+      box-shadow:
+        0 0 0 60px rgba(232,200,112,0.03),
+        0 0 0 130px rgba(232,200,112,0.02),
+        0 0 0 220px rgba(232,200,112,0.012);
+    }
+    .hero-pattern::before {
+      content: ''; position: absolute; inset: 60px; border-radius: 50%;
+      border: 1px solid rgba(232,200,112,0.09);
+    }
+    .hero-pattern::after {
+      content: ''; position: absolute; inset: 140px; border-radius: 50%;
+      border: 1px solid rgba(232,200,112,0.14);
+      background: radial-gradient(circle, rgba(193,98,42,0.08) 0%, transparent 70%);
+    }
+    .hero-content {
+      position: relative; z-index: 10;
+      text-align: center; padding: 0 24px; max-width: 820px;
+      animation: heroReveal 1.5s ease forwards; opacity: 0;
+    }
+    @keyframes heroReveal {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow {
+      font-family: 'Outfit', sans-serif;
+      font-size: 10px; letter-spacing: 0.48em; text-transform: uppercase;
+      color: var(--sand); margin-bottom: 22px; display: block; opacity: 0.85;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 9vw, 96px);
+      font-weight: 300; color: var(--cream);
+      line-height: 1.04; margin-bottom: 10px; letter-spacing: -0.01em;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(17px, 2.5vw, 23px);
+      font-style: italic; color: var(--sand); opacity: 0.8;
+      margin-bottom: 40px; font-weight: 300; letter-spacing: 0.03em;
+    }
+    .hero-pillars {
+      display: flex; justify-content: center; gap: 0; margin-bottom: 52px;
+    }
+    .pillar {
+      padding: 0 28px; position: relative;
+      font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--muted);
+    }
+    .pillar + .pillar::before {
+      content: '◆'; color: var(--terra); font-size: 5px;
+      position: absolute; left: 0; top: 50%; transform: translateY(-50%); opacity: 0.6;
+    }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* Buttons */
+    .btn-primary {
+      background: var(--terra); color: var(--cream);
+      padding: 15px 40px; border-radius: 1px;
+      text-decoration: none; font-family: 'Outfit', sans-serif;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500;
+      transition: background 0.2s, transform 0.15s;
+      border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { background: var(--clay); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent; color: var(--gold);
+      padding: 15px 40px; border-radius: 1px;
+      border: 1px solid rgba(232,200,112,0.38);
+      text-decoration: none; font-family: 'Outfit', sans-serif;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 400;
+      transition: all 0.2s; display: inline-block;
+    }
+    .btn-outline:hover { background: rgba(232,200,112,0.07); border-color: var(--gold); }
+    .scroll-hint {
+      position: absolute; bottom: 38px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 10;
+      color: var(--muted); font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase;
+      animation: breathe 2.5s ease infinite;
+    }
+    .scroll-hint::after {
+      content: ''; display: block; width: 1px; height: 44px;
+      background: linear-gradient(to bottom, var(--muted), transparent);
+    }
+    @keyframes breathe { 0%,100%{opacity:0.35} 50%{opacity:0.75} }
+
+    /* ── SECTIONS ── */
+    section.dark  { background: var(--earth); }
+    section.bark  { background: var(--bark); }
+    section.light { background: var(--warm); }
+    section.cream { background: var(--cream); }
+
+    .section-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 9px; letter-spacing: 0.48em; text-transform: uppercase;
+      color: var(--terra); margin-bottom: 14px; display: block;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 5vw, 56px); font-weight: 400;
+      line-height: 1.12; letter-spacing: -0.01em;
+    }
+    .section-title em { font-style: italic; }
+
+    /* ── PILLARS / SERVICES ── */
+    .services-lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(17px, 2.2vw, 21px);
+      font-style: italic; color: rgba(245,237,224,0.6);
+      max-width: 560px; line-height: 1.75; margin-bottom: 60px; font-weight: 300;
+    }
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+    @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
+    .service-card {
+      background: var(--bark); padding: 44px 36px;
+      position: relative; overflow: hidden; transition: background 0.3s;
+      border-top: 1px solid rgba(232,200,112,0.0);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .service-card:hover { background: rgba(45,26,10,0.7); border-top-color: var(--terra); }
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px; font-weight: 300;
+      color: rgba(193,98,42,0.18); line-height: 1; margin-bottom: 18px;
+    }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; font-weight: 400; color: var(--gold);
+      margin-bottom: 12px; letter-spacing: 0.01em;
+    }
+    .service-desc { font-size: 13px; color: rgba(245,237,224,0.5); line-height: 1.8; }
+
+    /* ── BRIDGE STATS ── */
+    .bridge-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    @media (max-width: 768px) { .bridge-inner { grid-template-columns: 1fr; gap: 40px; } }
+    .bridge-text p { font-size: 14px; color: var(--muted); line-height: 1.95; margin-bottom: 22px; }
+    .bridge-text p strong { color: var(--text); font-weight: 500; }
+    .bridge-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .bridge-stat {
+      background: var(--earth); padding: 30px 22px;
+      text-align: center; border-radius: 1px;
+      border: 1px solid rgba(232,200,112,0.06);
+      transition: border-color 0.3s;
+    }
+    .bridge-stat:hover { border-color: rgba(232,200,112,0.2); }
+    .bridge-stat:nth-child(2) { margin-top: 32px; }
+    .bridge-stat:nth-child(4) { margin-top: -32px; }
+    .bridge-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px; font-weight: 300; color: var(--gold);
+      display: block; line-height: 1; margin-bottom: 8px;
+    }
+    .bridge-label { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); }
+
+    /* ── JOURNEY CARDS ── */
+    .journey-card {
+      position: relative; overflow: hidden; border-radius: 2px;
+      cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    }
+    .journey-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.22); }
+    .journey-card .card-img {
+      height: 420px; overflow: hidden;
+    }
+    .journey-card .card-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .journey-card:hover .card-img img { transform: scale(1.06); }
+    .card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,15,6,0.94) 0%, rgba(26,15,6,0.2) 55%, transparent 100%);
+    }
+    .card-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 32px; }
+    .card-label { font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--sand); margin-bottom: 8px; }
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 400; color: var(--cream); margin-bottom: 10px;
+    }
+    .card-desc { font-size: 12px; color: rgba(245,237,224,0.6); line-height: 1.7; margin-bottom: 20px; }
+    .card-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .card-link:hover { gap: 10px; }
+    .card-link svg { width: 14px; height: 14px; }
+
+    /* ── OFFERINGS GRID ── */
+    .offering {
+      border: 1px solid rgba(212,168,83,0.1); padding: 36px;
+      border-radius: 1px; transition: border-color 0.3s, transform 0.2s;
+    }
+    .offering:hover { border-color: rgba(212,168,83,0.3); transform: translateY(-3px); }
+    .offering-icon { font-size: 30px; margin-bottom: 18px; display: block; }
+    .offering-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 400; color: var(--sand); margin-bottom: 10px;
+    }
+    .offering-desc { font-size: 13px; color: rgba(245,237,224,0.5); line-height: 1.85; }
+    .offering-tag {
+      display: inline-block; margin-top: 18px;
+      font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--terra); border: 1px solid rgba(193,98,42,0.3);
+      padding: 4px 10px; border-radius: 1px;
+    }
+
+    /* ── CONTACT LINKS ── */
+    .contact-link {
+      display: flex; align-items: center; gap: 16px;
+      padding: 18px 20px; border: 1px solid rgba(245,237,224,0.07);
+      border-radius: 1px; text-decoration: none; color: var(--cream);
+      transition: all 0.2s; background: rgba(255,255,255,0.02);
+    }
+    .contact-link:hover {
+      border-color: rgba(232,200,112,0.3);
+      background: rgba(232,200,112,0.04);
+      transform: translateX(5px);
+    }
+    .contact-link-label { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+    .contact-link-value { font-size: 13px; color: var(--cream); font-family: 'Outfit', sans-serif; }
+
+    /* ── FORM ── */
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(245,237,224,0.1);
+      border-radius: 1px; padding: 13px 16px;
+      color: var(--cream); font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 300;
+      outline: none; transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: rgba(232,200,112,0.4); }
+    .form-group select option { background: var(--bark); color: var(--cream); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    /* ── FOOTER ── */
+    footer { background: #0f0803; padding: 48px; }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; font-weight: 300; color: var(--sand);
+      letter-spacing: 0.08em; margin-bottom: 8px;
+    }
+    .footer-tagline { font-size: 10px; letter-spacing: 0.42em; text-transform: uppercase; color: var(--muted); opacity: 0.5; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-1 { transition-delay: 0.1s; }
+    .reveal-2 { transition-delay: 0.2s; }
+    .reveal-3 { transition-delay: 0.3s; }
+    @media (scripting: none) { .reveal { opacity: 1 !important; transform: none !important; } }
+
+    /* ── AI SECTION ── */
+    .tab-active { border-bottom: 3px solid var(--terra) !important; color: var(--terra) !important; }
+    #result { transition: all 0.2s ease; }
+
+    /* ── CAROUSEL ── */
+    .carousel-track { display: flex; gap: 20px; animation: carouselScroll 40s linear infinite; width: max-content; }
+    @keyframes carouselScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  </style>
+</head>
+
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">
+      <img src="assets/brand/rca-logo.png" alt="RCA" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="fallback" style="display:none">R</span>
+    </div>
+    Royal Connect Africa
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#journeys">Journeys</a></li>
+    <li><a href="#trade">Trade</a></li>
+    <li><a href="#contact" class="nav-cta">Connect</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-photo">
+    <img src="assets/images/uganda-forest.jpg"
+         onerror="this.src='https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2668&auto=format&fit=crop'"
+         alt="Uganda forest">
+  </div>
+  <div class="hero-glow"></div>
+  <div class="hero-pattern"></div>
+
+  <div class="hero-content">
+    <span class="hero-eyebrow">Dubai · East Africa · 18.7M Visitors 2024 · UAE–Africa Summit 2025</span>
+    <h1 class="hero-title">
+      Royal Connect<br><em>Africa</em>
+    </h1>
+    <p class="hero-sub">The bridge between East African heritage and Gulf opportunity</p>
+    <div class="hero-pillars">
+      <span class="pillar">Journeys</span>
+      <span class="pillar">Trade</span>
+      <span class="pillar">Legacy</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        <i data-lucide="message-circle" style="width:14px;height:14px"></i>
+        Start a Conversation
+      </a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">Discover</div>
+</section>
+
+<!-- ── CAROUSEL ── -->
+<section style="padding: 56px 0; background: var(--earth); border-top: 1px solid rgba(232,200,112,0.06); overflow: hidden;">
+  <div style="text-align:center; margin-bottom: 32px;">
+    <span style="font-size:9px; letter-spacing:0.45em; text-transform:uppercase; color:var(--terra); font-family:'Outfit',sans-serif;">Visual Evidence</span>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:400; color:var(--cream); margin-top:8px;">Bridging Two Worlds</h2>
+  </div>
+  <div style="overflow:hidden;" aria-hidden="true">
+    <div class="carousel-track">
+      <img src="assets/images/uganda-forest.jpg"   style="height:240px;width:380px;object-fit:cover;border-radius:2px;flex-shrink:0;" alt="Forest">
+      <img src="assets/images/gorilla-trek.jpg"    onerror="this.src='https://images.unsplash.com/photo-1583212292454-1fe6229603b7?q=80&w=600&auto=format&fit=crop'" style="height:240px;width:380px;object-fit:cover;border-radius:2px;flex-shrink:0;" alt="Gorilla trek">
+      <img src="assets/images/streets.jpg"         style="height:240px;width:380px;object-fit:cover;border-radius:2px;flex-shrink:0;" alt="Kampala">
+      <img src="assets/images/dubai-souq.jpg"      style="height:240px;width:380px;object-fit:cover;border-radius:2px;flex-shrink:0;" alt="Dubai souq">
+      <img src="assets/images/africa-elephant.jpg" style="height:240px;width:380px;object-fit:cover;border-radius:2px;flex-shrink:0;" alt="Elephant">
+      <img src="assets/images/mountains.jpg"       onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=600&auto=format&fit=crop'" style="height:240px;width:380px;object-fit:cover;border-radius:2px;flex-shrink:0;" alt="Mountains">
+      <!-- duplicates -->
+      <img src="assets/images/uganda-forest.jpg"   style="height:240px;width:380px;object-fit:cover;border-radius:2px;flex-shrink:0;" alt="">
+      <img src="assets/images/gorilla-trek.jpg"    onerror="this.src='https://images.unsplash.com/photo-1583212292454-1fe6229603b7?q=80&w=600&auto=format&fit=crop'" style="height:240px;width:380px;object-fit:cover;border-radius:2px;flex-shrink:0;" alt="">
+      <img src="assets/images/streets.jpg"         style="height:240px;width:380px;object-fit:cover;border-radius:2px;flex-shrink:0;" alt="">
+      <img src="assets/images/dubai-souq.jpg"      style="height:240px;width:380px;object-fit:cover;border-radius:2px;flex-shrink:0;" alt="">
+      <img src="assets/images/africa-elephant.jpg" style="height:240px;width:380px;object-fit:cover;border-radius:2px;flex-shrink:0;" alt="">
+      <img src="assets/images/mountains.jpg"       onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=600&auto=format&fit=crop'" style="height:240px;width:380px;object-fit:cover;border-radius:2px;flex-shrink:0;" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="dark" id="services" style="padding: 100px 48px;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="reveal">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title" style="color:var(--cream); margin-bottom:20px;">
+        Built on <em style="color:var(--gold)">three pillars</em>
+      </h2>
+      <p class="services-lead">
+        You're in Dubai and want East Africa done right — not a generic tour, not a risky cold introduction. We offer the bridge built by operators who have lived on both sides of this corridor.
+      </p>
+    </div>
+    <div class="services-grid reveal reveal-1">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3 class="service-name">Tourism & Journeys</h3>
+        <p class="service-desc">Curated travel experiences between the UAE and East Africa. Authentic, culturally rich, and designed for travellers who want more than a destination — they want a story.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3 class="service-name">Trade & Commerce</h3>
+        <p class="service-desc">Bridging export and import between Uganda and Dubai. Agricultural products, trade catalogues, and business matching for entrepreneurs building cross-continental presence.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3 class="service-name">Knowledge & Ebook</h3>
+        <p class="service-desc">Documented insights on navigating African markets, building legacy, and operating between Dubai and East Africa. Knowledge packaged for the next generation of operators.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BRIDGE STATS ── -->
+<section class="cream" style="padding: 100px 48px;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="bridge-inner">
+      <div class="bridge-text reveal">
+        <span class="section-label">The Connection</span>
+        <h2 class="section-title" style="color:var(--text); margin-bottom:28px;">
+          Two worlds.<br><em style="color:var(--clay)">One vision.</em>
+        </h2>
+        <p>Dubai recorded <strong>18.72 million overnight visitors in 2024</strong> — up 9% year-on-year. The UAE–Africa Tourism Investment Summit 2025 gathered ministers and senior investors from across the continent. The corridor is active and growing fast.</p>
+        <p>Yet most travellers and operators in Dubai have <strong>no trusted partner</strong> with actual roots on both sides of that corridor. What has been missing is a reliable, experienced connector.</p>
+        <p>Royal Connect Africa exists to close that gap — not from a distance, but from direct operational experience on both sides of the bridge.</p>
+        <a href="#contact" class="btn-primary" style="margin-top:12px;">Get in Touch</a>
+      </div>
+      <div class="bridge-visual reveal reveal-2">
+        <div class="bridge-stat"><span class="bridge-val">18.7M</span><span class="bridge-label">Dubai Visitors · 2024</span></div>
+        <div class="bridge-stat"><span class="bridge-val">2025</span><span class="bridge-label">UAE–Africa Summit</span></div>
+        <div class="bridge-stat"><span class="bridge-val">3</span><span class="bridge-label">Revenue Lanes</span></div>
+        <div class="bridge-stat"><span class="bridge-val">∞</span><span class="bridge-label">Untapped Corridor</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── JOURNEYS ── -->
+<section id="journeys" class="light" style="padding: 100px 48px;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="reveal" style="text-align:center; margin-bottom:60px;">
+      <span class="section-label">Expeditions</span>
+      <h2 class="section-title" style="color:var(--text);">Curated <em style="color:var(--clay)">Journeys</em></h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+
+      <article class="journey-card reveal reveal-1">
+        <div class="card-img">
+          <img src="assets/images/gorilla-trek.jpg"
+               onerror="this.src='https://images.unsplash.com/photo-1583212292454-1fe6229603b7?q=80&w=600&auto=format&fit=crop'"
+               alt="Gorilla trekking in Bwindi" loading="lazy">
         </div>
-        <div class="font-display font-bold text-royal-maroon tracking-tight text-lg leading-none">
-          ROYAL CONNECT <br/><span class="text-xs tracking-[0.3em] text-royal-gold uppercase">Africa</span>
+        <div class="card-overlay"></div>
+        <div class="card-body">
+          <div class="card-label">Bwindi Impenetrable Forest</div>
+          <h3 class="card-title">The Primate Loop</h3>
+          <p class="card-desc">Face-to-face with Mountain Gorillas and Chimpanzees in their natural mist-covered sanctuary.</p>
+          <a href="https://wa.me/971544392894?text=Tell%20me%20about%20The%20Primate%20Loop" target="_blank" rel="noopener" class="card-link">
+            Request Details <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+      <article class="journey-card reveal reveal-2">
+        <div class="card-img">
+          <img src="assets/images/mountains.jpg"
+               onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=600&auto=format&fit=crop'"
+               alt="Murchison Falls" loading="lazy">
+        </div>
+        <div class="card-overlay"></div>
+        <div class="card-body">
+          <div class="card-label">Murchison Falls</div>
+          <h3 class="card-title">Savanna & Source</h3>
+          <p class="card-desc">Big Five game drives combined with a boat cruise to the base of the world's most powerful waterfall.</p>
+          <a href="https://wa.me/971544392894?text=Tell%20me%20about%20Savanna%20Source" target="_blank" rel="noopener" class="card-link">
+            Request Details <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+      <article class="journey-card reveal reveal-3">
+        <div class="card-img">
+          <img src="assets/images/trip.jpg"
+               onerror="this.src='https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=600&auto=format&fit=crop'"
+               alt="Kampala to Dubai" loading="lazy">
+        </div>
+        <div class="card-overlay"></div>
+        <div class="card-body">
+          <div class="card-label">Kampala ↔ Dubai</div>
+          <h3 class="card-title">The Trade Bridge</h3>
+          <p class="card-desc">End-to-end sourcing and logistics for coffee, minerals, and textiles across continents.</p>
+          <a href="https://wa.me/971544392894?text=I%20need%20Trade%20Services" target="_blank" rel="noopener" class="card-link">
+            Start Inquiry <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── OFFERINGS ── -->
+<section class="bark" id="offerings" style="padding: 100px 48px;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="reveal" style="margin-bottom:52px;">
+      <span class="section-label">How We Can Help</span>
+      <h2 class="section-title" style="color:var(--cream);">Choose your <em style="color:var(--sand);">entry point</em></h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:24px;">
+      <div class="offering reveal reveal-1">
+        <span class="offering-icon">✈️</span>
+        <h3 class="offering-name">Travel Consulting</h3>
+        <p class="offering-desc">Custom itineraries for UAE residents wanting to explore Uganda and East Africa. Wildlife, culture, business — journeys that go beyond tourism.</p>
+        <span class="offering-tag">By consultation</span>
+      </div>
+      <div class="offering reveal reveal-2">
+        <span class="offering-icon">📦</span>
+        <h3 class="offering-name">Export Matching</h3>
+        <p class="offering-desc">Connecting UAE businesses with East African suppliers. Agricultural goods, handcrafted products, and emerging market commodities with full introduction support.</p>
+        <span class="offering-tag">B2B</span>
+      </div>
+      <div class="offering reveal reveal-3">
+        <span class="offering-icon">📖</span>
+        <h3 class="offering-name">The RCA Ebook</h3>
+        <p class="offering-desc">A practical guide to building a life and business across continents. From Kampala to Dubai — the systems, mindsets, and moves that work.</p>
+        <span class="offering-tag">Coming soon</span>
+      </div>
+      <div class="offering reveal reveal-3">
+        <span class="offering-icon">🤝</span>
+        <h3 class="offering-name">Partnership Inquiry</h3>
+        <p class="offering-desc">Are you a tour operator, trade body, or organisation looking to build Africa-UAE connections? Let's talk about what we can build together.</p>
+        <span class="offering-tag">Open</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRADE ── -->
+<section id="trade" class="dark" style="padding: 100px 48px; position:relative; overflow:hidden;">
+  <div style="position:absolute;top:0;right:0;width:45%;height:100%;background:rgba(193,98,42,0.05);clip-path:polygon(10% 0,100% 0,100% 100%,0% 100%);pointer-events:none;"></div>
+  <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; position:relative; z-index:1;">
+    <div class="reveal">
+      <span class="section-label">Commerce</span>
+      <h2 class="section-title" style="color:var(--cream); margin-bottom:20px;">Ethical Trade <em style="color:var(--gold);">Channels.</em></h2>
+      <p style="font-size:14px;color:rgba(245,237,224,0.6);line-height:1.9;margin-bottom:32px;">
+        We don't just move people; we move value. RCA facilitates the export of high-quality Ugandan commodities to the UAE market.
+      </p>
+      <ul style="list-style:none;margin-bottom:40px;display:flex;flex-direction:column;gap:14px;">
+        <li style="display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(245,237,224,0.8);">
+          <i data-lucide="check-circle" style="width:16px;height:16px;color:var(--gold);flex-shrink:0;"></i>
+          Specialty Arabica & Robusta Coffee
+        </li>
+        <li style="display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(245,237,224,0.8);">
+          <i data-lucide="check-circle" style="width:16px;height:16px;color:var(--gold);flex-shrink:0;"></i>
+          Organic Fruits & Shea Butter
+        </li>
+        <li style="display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(245,237,224,0.8);">
+          <i data-lucide="check-circle" style="width:16px;height:16px;color:var(--gold);flex-shrink:0;"></i>
+          Verified Mineral Sourcing
+        </li>
+      </ul>
+      <form id="trade-form" action="https://formspree.io/f/xnnrnlqw" method="POST" style="display:flex;flex-direction:column;gap:14px;">
+        <input type="hidden" name="_subject" value="New Trade Inquiry from Royal Connect Africa">
+        <input type="hidden" name="_next" value="https://aftrica.tours/">
+        <div class="form-group" style="margin-bottom:0;">
+          <label>Your Name</label>
+          <input type="text" name="name" required placeholder="Full name">
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label>Email</label>
+          <input type="email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label>Interested In</label>
+          <select name="interest" required>
+            <option value="">Select...</option>
+            <option>Tourism & Travel Planning</option>
+            <option>Trade & Export Matching</option>
+            <option>Partnership Inquiry</option>
+            <option>The RCA Ebook</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label>Message</label>
+          <textarea name="message" required placeholder="Tell us what you have in mind..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Send Request</button>
+        <div id="trade-status" style="text-align:center;font-size:12px;margin-top:4px;"></div>
+      </form>
+    </div>
+    <div class="reveal reveal-2" style="position:relative;height:480px;border-radius:2px;overflow:hidden;border:1px solid rgba(232,200,112,0.1);">
+      <img src="assets/images/dubai-souq.jpg" style="width:100%;height:100%;object-fit:cover;opacity:0.55;" alt="Dubai souq">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(26,15,6,0.3);">
+        <div style="text-align:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:var(--gold);line-height:1;">100%</div>
+          <div style="font-size:10px;letter-spacing:0.35em;text-transform:uppercase;color:var(--sand);margin-top:6px;">Direct Trade</div>
         </div>
       </div>
-      <!-- Desktop Nav Links -->
-      <div class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em]">
-        <a href="#journeys" class="hover:text-royal-maroon transition-colors">Journeys</a>
-        <a href="#trade" class="hover:text-royal-maroon transition-colors">Trade</a>
-        <a href="#ai-inquiry" class="text-royal-maroon hover:text-royal-gold transition-colors flex items-center gap-1">
-          <i data-lucide="sparkles" class="w-3 h-3"></i> AI Concierge
-        </a>
-      </div>
-      <!-- Mobile Hamburger -->
-      <div class="md:hidden">
-        <button id="mobile-menu-btn" class="text-royal-maroon focus:outline-none" aria-label="Open menu">
-          <i data-lucide="menu" class="w-8 h-8"></i>
+    </div>
+  </div>
+</section>
+
+<!-- ── AI CONCIERGE ── -->
+<section id="ai-inquiry" style="padding: 100px 48px; background: var(--cream);">
+  <div style="max-width:860px; margin:0 auto;">
+    <div class="reveal" style="text-align:center;margin-bottom:48px;">
+      <span class="section-label" style="color:var(--terra);">Powered by Intelligence</span>
+      <h2 class="section-title" style="color:var(--text);">AI-Powered <em style="color:var(--clay);">Inquiry</em></h2>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--muted);margin-top:12px;">Instant tailored safari plans or trade proposals — rooted in legacy.</p>
+    </div>
+    <div class="reveal reveal-1" style="background:white;border:1px solid rgba(26,15,6,0.08);border-radius:2px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.08);">
+      <div style="display:flex;border-bottom:1px solid rgba(26,15,6,0.08);" role="tablist">
+        <button id="tab-safari" data-mode="safari" class="tab-btn" role="tab" aria-selected="true"
+          style="flex:1;padding:20px;font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;background:none;border:none;border-bottom:3px solid var(--terra);color:var(--terra);cursor:pointer;transition:all 0.2s;">
+          Safari Planner
+        </button>
+        <button id="tab-trade" data-mode="trade" class="tab-btn" role="tab" aria-selected="false"
+          style="flex:1;padding:20px;font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;background:none;border:none;border-bottom:3px solid transparent;color:var(--muted);cursor:pointer;transition:all 0.2s;">
+          Trade Inquiry
         </button>
       </div>
-      <!-- Desktop CTA -->
-      <a href="https://wa.me/971544392894" target="_blank" rel="noopener"
-         class="hidden md:flex bg-royal-maroon text-white px-6 py-2 rounded-full text-xs font-bold tracking-widest hover:bg-royal-emerald transition-colors shadow-lg items-center gap-2">
-        <i data-lucide="message-circle" class="w-3 h-3"></i> <span>CONNECT</span>
-      </a>
+      <div style="padding:40px 48px;">
+        <form id="ai-form">
+          <textarea id="ai-query" rows="5"
+            style="width:100%;padding:20px;border:1px solid rgba(26,15,6,0.12);border-radius:1px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:300;color:var(--text);background:var(--warm);outline:none;resize:vertical;transition:border-color 0.2s;"
+            placeholder="Describe your safari dates, group size, or trade requirements..."></textarea>
+          <button type="submit" id="ai-generate"
+            style="width:100%;margin-top:16px;padding:18px;background:var(--earth);color:var(--cream);border:none;border-radius:1px;font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:10px;">
+            <span>Generate Draft</span>
+            <span id="ai-loader" style="display:none;width:16px;height:16px;border:2px solid rgba(245,237,224,0.4);border-top-color:var(--cream);border-radius:50%;animation:spin 0.8s linear infinite;"></span>
+          </button>
+        </form>
+        <div id="ai-result" style="display:none;margin-top:28px;padding:28px;background:var(--warm);border:1px solid rgba(26,15,6,0.08);border-radius:1px;" aria-live="polite">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:16px;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--text);">Your Draft</h3>
+            <button id="ai-copy" style="font-size:12px;color:var(--muted);background:none;border:none;cursor:pointer;">📋 Copy</button>
+          </div>
+          <div id="ai-result-text" style="font-size:14px;color:var(--muted);line-height:1.8;white-space:pre-wrap;"></div>
+        </div>
+      </div>
     </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-      <div class="px-6 py-8 flex flex-col space-y-6 text-center text-[13px] font-bold uppercase tracking-[0.2em]">
-        <a href="#journeys" class="hover:text-royal-maroon transition-colors">Journeys</a>
-        <a href="#trade" class="hover:text-royal-maroon transition-colors">Trade</a>
-        <a href="#ai-inquiry" class="text-royal-maroon hover:text-royal-gold transition-colors flex items-center justify-center gap-1">
-          <i data-lucide="sparkles" class="w-4 h-4"></i> AI Concierge
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact" class="dark" style="padding: 100px 48px; position:relative; overflow:hidden;">
+  <div style="position:absolute;bottom:-200px;right:-200px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle, rgba(193,98,42,0.12), transparent 70%);pointer-events:none;"></div>
+  <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.1fr 1fr; gap:80px; position:relative;z-index:1;">
+    <div class="reveal">
+      <span class="section-label">Get Connected</span>
+      <h2 class="section-title" style="color:var(--cream);margin-bottom:20px;">Let's build <em style="color:var(--gold);">something real</em></h2>
+      <p style="font-size:14px;color:rgba(245,237,224,0.55);line-height:1.9;margin-bottom:36px;">Whether you are planning a journey, researching a trade opportunity, or building a cross-continental partnership — the fastest path forward is a direct conversation.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <a href="https://wa.me/971544392894" class="contact-link" target="_blank" rel="noopener">
+          <i data-lucide="message-circle" style="width:18px;height:18px;color:var(--sand);flex-shrink:0;"></i>
+          <div>
+            <div class="contact-link-label">WhatsApp</div>
+            <div class="contact-link-value">+971 54 439 2894</div>
+          </div>
         </a>
-        <a href="https://wa.me/971544392894" target="_blank" rel="noopener"
-           class="bg-royal-maroon text-white py-3 rounded-full hover:bg-royal-emerald transition-colors flex items-center justify-center gap-2">
-          <i data-lucide="message-circle" class="w-5 h-5"></i> Talk on WhatsApp
+        <a href="mailto:info@royalconnectafrica.com" class="contact-link">
+          <i data-lucide="mail" style="width:18px;height:18px;color:var(--sand);flex-shrink:0;"></i>
+          <div>
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value">info@royalconnectafrica.com</div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/royal_connectafrica" class="contact-link" target="_blank" rel="noopener">
+          <i data-lucide="instagram" style="width:18px;height:18px;color:var(--sand);flex-shrink:0;"></i>
+          <div>
+            <div class="contact-link-label">Instagram</div>
+            <div class="contact-link-value">@royal_connectafrica</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/kaizire-joel-1b4100153" class="contact-link" target="_blank" rel="noopener">
+          <i data-lucide="linkedin" style="width:18px;height:18px;color:var(--sand);flex-shrink:0;"></i>
+          <div>
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-value">Joel Kaizire</div>
+          </div>
         </a>
       </div>
     </div>
-  </nav>
-
-  <!-- MAIN -->
-  <main id="main-content" role="main" class="pt-20">
-
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center" aria-labelledby="hero-heading">
-      <div class="absolute inset-0 z-0">
-        <img src="assets/images/uganda-forest.jpg"
-             onerror="this.src='https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2668&auto=format&fit=crop'"
-             alt="Ugandan forest landscape"
-             class="w-full h-full object-cover" />
-        <div class="absolute inset-0 hero-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20">
-        <div class="max-w-3xl animate-fade-in">
-          <div class="inline-flex items-center gap-2 px-3 py-1 border border-white/30 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] text-white/80 mb-6">
-            <span class="w-2 h-2 bg-royal-gold rounded-full"></span> Uganda ↔ UAE
-          </div>
-          <h1 id="hero-heading" class="font-display text-5xl md:text-7xl font-800 text-white leading-[1.1] mb-8 drop-shadow-xl">
-            We don't chase outcomes.<br/>
-            <span class="text-royal-gold italic font-serif font-medium">We position gravity.</span>
-          </h1>
-          <p class="text-lg md:text-xl text-white/90 font-light max-w-xl leading-relaxed mb-12 border-l-2 border-royal-gold pl-6">
-            The bridge between East African heritage and Gulf opportunity. Curated safaris, ethical trade, and sovereign partnerships.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="#ai-inquiry" class="bg-white text-royal-maroon px-8 py-4 rounded-full font-bold text-xs tracking-[0.2em] hover:bg-royal-gold hover:text-white transition-all text-center uppercase flex items-center justify-center gap-2">
-              <i data-lucide="sparkles" class="w-3 h-3"></i> Plan with AI
-            </a>
-            <a href="#journeys" class="border border-white/40 text-white px-8 py-4 rounded-full font-bold text-xs tracking-[0.2em] hover:bg-white/10 transition-all text-center uppercase backdrop-blur-sm">
-              View Itineraries
-            </a>
-          </div>
+    <div class="reveal reveal-2">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--gold);margin-bottom:24px;">Send a message</h3>
+      <form id="contact-form" action="https://formspree.io/f/xnnrnlqw" method="POST">
+        <input type="hidden" name="_subject" value="New Inquiry — Royal Connect Africa">
+        <input type="hidden" name="_next" value="https://aftrica.tours/">
+        <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="Full name" required></div>
+        <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
+        <div class="form-group"><label>WhatsApp (optional)</label><input type="text" name="whatsapp" placeholder="+971..."></div>
+        <div class="form-group">
+          <label>I'm interested in</label>
+          <select name="interest" required>
+            <option value="">Select...</option>
+            <option>Tourism & Travel Planning</option>
+            <option>Trade & Export Matching</option>
+            <option>Partnership Inquiry</option>
+            <option>The RCA Ebook</option>
+            <option>General Enquiry</option>
+          </select>
         </div>
-      </div>
-      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 animate-bounce hidden md:block">
-        <i data-lucide="arrow-down" class="w-6 h-6"></i>
-      </div>
-    </section>
-
-    <!-- Carousel Section -->
-    <section class="py-16 bg-white overflow-hidden border-b border-royal-ink/5">
-      <div class="max-w-7xl mx-auto px-6 mb-8 text-center">
-        <span class="text-royal-gold text-xs font-bold tracking-[0.3em] uppercase">Visual Evidence</span>
-        <h2 class="font-display text-2xl font-bold text-royal-maroon mt-2">Bridging Two Worlds</h2>
-      </div>
-      <div class="relative w-full overflow-hidden" aria-hidden="true">
-        <div class="flex carousel-track animate-scroll gap-6 px-6">
-          <img src="assets/images/uganda-forest.jpg"   class="h-64 w-96 object-cover rounded-xl shadow-lg" alt="Forest" loading="lazy">
-          <img src="assets/images/streets.jpg"         class="h-64 w-96 object-cover rounded-xl shadow-lg" alt="Streets of Kampala" loading="lazy">
-          <img src="assets/images/dubai-souq.jpg"      class="h-64 w-96 object-cover rounded-xl shadow-lg" alt="Dubai souq" loading="lazy">
-          <img src="assets/images/africa-elephant.jpg" class="h-64 w-96 object-cover rounded-xl shadow-lg" alt="Elephant in Africa" loading="lazy">
-          <!-- Duplicates for continuous scroll -->
-          <img src="assets/images/uganda-forest.jpg"   class="h-64 w-96 object-cover rounded-xl shadow-lg" alt="" loading="lazy">
-          <img src="assets/images/streets.jpg"         class="h-64 w-96 object-cover rounded-xl shadow-lg" alt="" loading="lazy">
-          <img src="assets/images/dubai-souq.jpg"      class="h-64 w-96 object-cover rounded-xl shadow-lg" alt="" loading="lazy">
-          <img src="assets/images/africa-elephant.jpg" class="h-64 w-96 object-cover rounded-xl shadow-lg" alt="" loading="lazy">
+        <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell us what you have in mind..." required></textarea></div>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;border:none;font-family:'Outfit',sans-serif;">Send Message</button>
+        <div id="contact-success" style="display:none;margin-top:14px;padding:14px;background:rgba(74,124,89,0.14);border:1px solid rgba(74,124,89,0.3);border-radius:1px;text-align:center;font-size:12px;color:var(--sage);">
+          ✓ Message received. We'll respond within 24 hours.
         </div>
-      </div>
-    </section>
-
-    <!-- Curated Journeys -->
-    <section id="journeys" class="py-24 bg-white">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <span class="text-royal-gold text-xs font-bold tracking-[0.3em] uppercase">Expeditions</span>
-          <h2 class="font-display text-4xl font-800 text-royal-ink mt-2">Curated Journeys</h2>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8" role="list">
-
-          <!-- Card 1: The Primate Loop -->
-          <article role="listitem" class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer card-hover transition-all duration-300" aria-labelledby="primate-loop">
-            <div class="h-[400px]">
-              <img src="assets/images/gorilla-trek.jpg"
-                   onerror="this.src='https://images.unsplash.com/photo-1583212292454-1fe6229603b7?q=80&w=600&auto=format&fit=crop'"
-                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                   alt="Gorilla trekking in Bwindi" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" aria-hidden="true"></div>
-            </div>
-            <div class="absolute bottom-0 left-0 p-8 w-full">
-              <div class="text-[10px] font-bold text-royal-gold uppercase tracking-widest mb-2">Bwindi Impenetrable Forest</div>
-              <h3 id="primate-loop" class="font-display text-2xl font-bold text-white mb-4">The Primate Loop</h3>
-              <p class="text-white/70 text-sm mb-6 line-clamp-2">Face-to-face with Mountain Gorillas and Chimpanzees in their natural mist-covered sanctuary.</p>
-              <a href="https://wa.me/971544392894?text=Tell%20me%20about%20The%20Primate%20Loop" target="_blank" rel="noopener"
-                 class="inline-flex items-center text-white text-xs font-bold uppercase tracking-widest hover:gap-2 transition-all">
-                Request Details <i data-lucide="arrow-right" class="w-4 h-4 ml-1" aria-hidden="true"></i>
-              </a>
-            </div>
-          </article>
-
-          <!-- Card 2: Savanna & Source -->
-          <article role="listitem" class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer card-hover transition-all duration-300">
-            <div class="h-[400px]">
-              <img src="assets/images/mountains.jpg"
-                   onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=600&auto=format&fit=crop'"
-                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                   alt="Murchison Falls safari" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-            </div>
-            <div class="absolute bottom-0 left-0 p-8 w-full">
-              <div class="text-[10px] font-bold text-royal-gold uppercase tracking-widest mb-2">Murchison Falls</div>
-              <h3 class="font-display text-2xl font-bold text-white mb-4">Savanna & Source</h3>
-              <p class="text-white/70 text-sm mb-6 line-clamp-2">Big Five game drives combined with a boat cruise to the base of the world's most powerful waterfall.</p>
-              <a href="https://wa.me/971544392894?text=Tell%20me%20about%20Savanna%20Source" target="_blank" rel="noopener"
-                 class="inline-flex items-center text-white text-xs font-bold uppercase tracking-widest hover:gap-2 transition-all">
-                Request Details <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-              </a>
-            </div>
-          </article>
-
-          <!-- Card 3: The Trade Bridge -->
-          <article role="listitem" class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer card-hover transition-all duration-300" aria-labelledby="trade-bridge">
-            <div class="h-[400px]">
-              <img src="assets/images/trip.jpg"
-                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                   alt="Kampala to Dubai trade route" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" aria-hidden="true"></div>
-            </div>
-            <div class="absolute bottom-0 left-0 p-8 w-full">
-              <div class="text-[10px] font-bold text-royal-gold uppercase tracking-widest mb-2">Kampala ↔ Dubai</div>
-              <h3 id="trade-bridge" class="font-display text-2xl font-bold text-white mb-4">The Trade Bridge</h3>
-              <p class="text-white/70 text-sm mb-6 line-clamp-2">End-to-end sourcing and logistics for coffee, minerals, and textiles.</p>
-              <a href="https://wa.me/971544392894?text=I%20need%20Trade%20Services" target="_blank" rel="noopener"
-                 class="inline-flex items-center text-white text-xs font-bold uppercase tracking-widest hover:gap-2 transition-all">
-                Start Inquiry <i data-lucide="arrow-right" class="w-4 h-4 ml-1" aria-hidden="true"></i>
-              </a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Trade Section -->
-    <section id="trade" class="py-24 bg-royal-ink text-white relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-1/2 h-full bg-royal-maroon/10 -skew-x-12"></div>
-      <div class="max-w-7xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-16 items-center">
-        <div>
-          <span class="text-royal-gold text-xs font-bold tracking-[0.3em] uppercase">Commerce</span>
-          <h2 class="font-display text-4xl font-800 mt-2 mb-6">Ethical Trade Channels.</h2>
-          <p class="text-white/70 leading-relaxed mb-8">
-            We don't just move people; we move value. RCA facilitates the export of high-quality Ugandan commodities to the UAE market.
-          </p>
-          <ul class="space-y-4 mb-10">
-            <li class="flex items-center gap-3">
-              <i data-lucide="check-circle" class="text-royal-gold w-5 h-5"></i>
-              <span class="text-sm tracking-wide">Specialty Arabica & Robusta Coffee</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <i data-lucide="check-circle" class="text-royal-gold w-5 h-5"></i>
-              <span class="text-sm tracking-wide">Organic Fruits & Shea Butter</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <i data-lucide="check-circle" class="text-royal-gold w-5 h-5"></i>
-              <span class="text-sm tracking-wide">Verified Mineral Sourcing</span>
-            </li>
-          </ul>
-
-          <!-- Trade Inquiry Form -->
-          <form id="contact-form" action="https://formspree.io/f/xnnrnlqw" method="POST" class="space-y-4" aria-label="Trade inquiry form">
-            <input type="hidden" name="_subject" value="New Trade Inquiry from Royal Connect Africa">
-            <input type="hidden" name="_next" value="https://aftrica.tours/">
-            <div>
-              <label for="contact-name" class="block text-sm font-medium text-white/80 mb-1">Your Name</label>
-              <input id="contact-name" type="text" name="name" required
-                     class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-royal-gold"
-                     placeholder="Your Name" />
-            </div>
-            <div>
-              <label for="contact-email" class="block text-sm font-medium text-white/80 mb-1">Email</label>
-              <input id="contact-email" type="email" name="email" required
-                     class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-royal-gold"
-                     placeholder="your@email.com" />
-            </div>
-            <div>
-              <label for="contact-message" class="block text-sm font-medium text-white/80 mb-1">Message / Products Interested In</label>
-              <textarea id="contact-message" name="message" rows="4" required
-                        class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-royal-gold"
-                        placeholder="e.g. Interested in Arabica coffee samples and pricing..."></textarea>
-            </div>
-            <button type="submit" class="w-full bg-white text-royal-ink px-8 py-4 rounded-full font-bold text-xs tracking-[0.2em] hover:bg-royal-gold transition-all">
-              SEND REQUEST
-            </button>
-          </form>
-          <div id="form-status" class="mt-4 text-center text-sm"></div>
-        </div>
-
-        <div class="h-[400px] bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center relative overflow-hidden">
-          <img src="assets/images/dubai-souq.jpg"
-               class="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity"
-               alt="Dubai souq" loading="lazy">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="text-center">
-              <h3 class="font-display text-3xl font-bold">100%</h3>
-              <p class="text-[10px] uppercase tracking-[0.3em]">Direct Trade</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AI-Powered Inquiry -->
-    <section id="ai-inquiry" class="py-20 bg-[#faf9f6]">
-      <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-serif text-[#4a1415] mb-3">AI-Powered Inquiry</h2>
-          <p class="text-lg text-gray-600 max-w-md mx-auto">Instant tailored safari plans or trade proposals — powered by intelligence, rooted in legacy.</p>
-        </div>
-        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
-          <div class="flex border-b" role="tablist" aria-label="AI modes">
-            <button data-mode="safari" class="tab-btn flex-1 py-5 text-lg font-medium border-b-4 border-[#4a1415] text-[#4a1415] transition" role="tab" aria-selected="true">Safari Planner</button>
-            <button data-mode="trade" class="tab-btn flex-1 py-5 text-lg font-medium text-gray-500 hover:text-[#4a1415] transition" role="tab" aria-selected="false">Trade Inquiry</button>
-          </div>
-          <div class="p-8 md:p-12">
-            <form id="ai-form" class="space-y-6">
-              <textarea id="query" rows="5"
-                class="w-full px-6 py-5 border border-gray-200 rounded-2xl focus:outline-none focus:border-[#4a1415] resize-y text-lg"
-                placeholder="Tell us your dream safari dates, group size, or trade requirements (coffee, minerals, textiles...)"></textarea>
-              <button type="submit" id="generate-btn"
-                class="w-full bg-[#4a1415] hover:bg-black text-white font-medium py-5 rounded-2xl text-xl transition flex items-center justify-center gap-3">
-                <span>Generate Draft</span>
-                <span id="loader" class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-              </button>
-            </form>
-            <div id="result" class="hidden mt-10 p-8 bg-[#faf9f6] rounded-2xl border border-gray-100" aria-live="polite">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="font-serif text-2xl text-[#4a1415]" id="result-title">Your Draft</h3>
-                <button id="copy-btn" class="text-sm text-gray-500 hover:text-[#4a1415] flex items-center gap-1" aria-label="Copy draft">
-                  📋 Copy
-                </button>
-              </div>
-              <div id="result-text" class="text-gray-700 leading-relaxed whitespace-pre-wrap"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-royal-light py-20 border-t border-royal-ink/5">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-10">
-      <!-- Brand -->
-      <div>
-        <div class="flex items-center gap-2 mb-4">
-          <img src="assets/brand/rca-logo.png"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-               alt="RCA" class="w-8 h-8 rounded-full object-cover">
-          <div style="display:none" class="w-8 h-8 bg-royal-maroon text-white items-center justify-center font-display font-bold rounded-full flex">R</div>
-          <span class="font-display font-bold text-royal-maroon">ROYAL CONNECT</span>
-        </div>
-        <p class="text-xs text-royal-ink/50 max-w-xs leading-relaxed">
-          The inevitable bridge between the Pearl of Africa and the City of Gold.
+        <p style="font-size:10px;color:var(--muted);text-align:center;margin-top:12px;opacity:0.6;">
+          Or reach directly via <a href="https://wa.me/971544392894" target="_blank" style="color:var(--sand);text-decoration:none;">WhatsApp ↗</a>
         </p>
-      </div>
-      <!-- Links -->
-      <div class="flex flex-wrap gap-12 text-[10px] font-bold uppercase tracking-[0.2em] text-royal-ink/80">
-        <div class="flex flex-col gap-4">
-          <span class="text-royal-gold">Contact</span>
-          <a href="https://wa.me/971544392894" target="_blank" rel="noopener" class="hover:text-royal-maroon flex items-center gap-1">
-            <i data-lucide="message-circle" class="w-3 h-3"></i> +971 54 439 2894
-          </a>
-          <a href="mailto:info@royalconnectafrica.com" class="hover:text-royal-maroon flex items-center gap-1">
-            <i data-lucide="mail" class="w-3 h-3"></i> info@royalconnectafrica.com
-          </a>
-        </div>
-        <div class="flex flex-col gap-4">
-          <span class="text-royal-gold">Social</span>
-          <a href="https://www.linkedin.com/in/kaizire-joel-1b4100153" target="_blank" rel="noopener" class="hover:text-royal-maroon">LinkedIn</a>
-          <a href="https://www.instagram.com/royal_connectafrica" target="_blank" rel="noopener" class="hover:text-royal-maroon">Instagram</a>
-        </div>
-      </div>
+      </form>
     </div>
-    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-royal-ink/5 text-[10px] text-royal-ink/40 flex justify-between">
-      <span>© 2026 Royal Connect Africa. Kaizrug HQ.</span>
-      <span>Kampala • Dubai</span>
+  </div>
+</section>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;">
+    <div class="footer-logo">Royal Connect Africa</div>
+    <div class="footer-tagline">Journeys · Trade · Legacy</div>
+    <div style="display:flex;gap:28px;flex-wrap:wrap;justify-content:center;margin:8px 0;">
+      <a href="#services"  style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);text-decoration:none;opacity:0.55;transition:opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.55">Services</a>
+      <a href="#journeys" style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);text-decoration:none;opacity:0.55;transition:opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.55">Journeys</a>
+      <a href="#trade"    style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);text-decoration:none;opacity:0.55;transition:opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.55">Trade</a>
+      <a href="https://wa.me/971544392894" target="_blank" style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);text-decoration:none;opacity:0.55;transition:opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.55">WhatsApp</a>
     </div>
-  </footer>
+    <div style="font-size:10px;color:var(--muted);opacity:0.3;">© 2026 Royal Connect Africa · Dubai, UAE · Built by Kaizrug</div>
+  </div>
+</footer>
 
-  <style>
-    #result { transition: all 0.2s ease; }
-  </style>
+<style>
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
 
-  <script src="scripts/main.js" defer></script>
-  <script>
-    // Lucide icons init — runs after DOM + scripts are ready
-    document.addEventListener('DOMContentLoaded', function () {
-      if (typeof lucide !== 'undefined') lucide.createIcons();
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile nav (if needed)
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  }
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
     });
-  </script>
+  }, { threshold: 0.1 });
+  reveals.forEach(r => revealObs.observe(r));
+
+  // AI tab switcher
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.style.borderBottomColor = 'transparent';
+        b.style.color = 'var(--muted)';
+        b.setAttribute('aria-selected','false');
+      });
+      btn.style.borderBottomColor = 'var(--terra)';
+      btn.style.color = 'var(--terra)';
+      btn.setAttribute('aria-selected','true');
+      const mode = btn.dataset.mode;
+      document.getElementById('ai-query').placeholder =
+        mode === 'safari'
+          ? 'Describe your safari dates, group size, preferred regions...'
+          : 'Describe your trade requirements — coffee, minerals, textiles, quantities...';
+    });
+  });
+
+  // Contact form AJAX
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = contactForm.querySelector('button[type=submit]');
+      btn.textContent = 'Sending...'; btn.disabled = true;
+      try {
+        const res = await fetch(contactForm.action, { method:'POST', body:new FormData(contactForm), headers:{'Accept':'application/json'} });
+        if (res.ok) {
+          contactForm.reset();
+          document.getElementById('contact-success').style.display = 'block';
+          btn.style.display = 'none';
+        } else { btn.textContent = 'Failed — try WhatsApp'; btn.disabled = false; }
+      } catch { btn.textContent = 'Failed — try WhatsApp'; btn.disabled = false; }
+    });
+  }
+
+  // Trade form AJAX
+  const tradeForm = document.getElementById('trade-form');
+  if (tradeForm) {
+    tradeForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = tradeForm.querySelector('button[type=submit]');
+      const orig = btn.textContent; btn.textContent = 'Sending...'; btn.disabled = true;
+      try {
+        const res = await fetch(tradeForm.action, { method:'POST', body:new FormData(tradeForm), headers:{'Accept':'application/json'} });
+        const status = document.getElementById('trade-status');
+        if (res.ok) {
+          tradeForm.reset();
+          status.style.color = 'var(--sage)';
+          status.textContent = '✓ Request received. We\'ll be in touch within 24 hours.';
+        } else { btn.textContent = orig; btn.disabled = false; }
+      } catch { btn.textContent = orig; btn.disabled = false; }
+    });
+  }
+
+  // Lucide icons
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+  });
+</script>
+
 </body>
 </html>
