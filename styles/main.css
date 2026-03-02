@@ -1,0 +1,24 @@
+/* Glass nav */
+.glass-nav {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(26,15,6,0.06);
+}
+/* Hero overlay */
+.hero-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(26,15,6,0.75) 0%,
+    rgba(26,15,6,0.35) 100%
+  );
+}
+/* Card hover lift */
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.18);
+}
+/* Carousel track (Tailwind animate-scroll handles the rest) */
+.carousel-track {
+  will-change: transform;
+}
