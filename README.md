@@ -19,6 +19,13 @@ Other RCA repositories may remain as historical, supporting, experimental or bac
 
 The site is a static HTML/CSS/JavaScript implementation with supporting assets, scripts and styles. The homepage declares the canonical RCA runtime URL as `https://rca-site.pages.dev`.
 
+## RCA v2 routes
+
+- `/booking/` — Calendly booking followed by the AED 49 Stripe Payment Link.
+- `/trade/` — Uganda ↔ Dubai catalogue preview and trade inquiry flow.
+
+The route source and release gate are documented in [`docs/DEPLOYMENT_CHECKLIST.md`](docs/DEPLOYMENT_CHECKLIST.md). Replace the documented integration placeholders only with verified production endpoints. The homepage remains the canonical public landing page.
+
 ## Promotion path
 
 `Notion RCA project record → rca-sites → deploy → runtime → user/partner action → evidence`
