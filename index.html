@@ -438,6 +438,12 @@
       .trade-layout, .contact-layout { gap: 40px !important; }
     }
 
+    .mobile-menu-toggle{display:none;border:1px solid rgba(232,200,112,.45);background:transparent;color:var(--gold);padding:10px 13px;font:500 12px 'Outfit',sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+    .mobile-menu{position:absolute;top:100%;left:0;right:0;padding:12px 18px 20px;background:rgba(26,15,6,.98);border-top:1px solid rgba(232,200,112,.12);box-shadow:0 16px 28px rgba(0,0,0,.2)}
+    .mobile-menu.hidden{display:none}.mobile-menu a{display:block;padding:14px 8px;color:var(--cream);text-decoration:none;font-size:13px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid rgba(245,237,224,.08)}
+    .mobile-menu a:focus-visible,.mobile-menu-toggle:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    @media(max-width:768px){.mobile-menu-toggle{display:inline-flex;align-items:center;gap:9px}nav{position:fixed!important}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1!important;transform:none!important}.carousel-track{animation:none!important}}
   </style>
 </head>
 <body>
@@ -455,6 +461,8 @@
     <li><a href="#trade">Trade</a></li>
     <li><a href="#contact" class="nav-cta">Connect</a></li>
   </ul>
+  <button type="button" id="mobile-menu-btn" class="mobile-menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation"><span aria-hidden="true">☰</span><span>Menu</span></button>
+  <div id="mobile-menu" class="mobile-menu hidden"><a href="#services">Services</a><a href="#journeys">Journeys</a><a href="#trade">Trade</a><a href="#contact">Contact</a></div>
 </nav>
 <main>
 <section class="hero">
@@ -466,7 +474,7 @@
   <div class="hero-glow"></div>
   <div class="hero-pattern"></div>
   <div class="hero-content">
-    <span class="hero-eyebrow">Dubai · East Africa · 18.7M Visitors 2024 · UAE–Africa Summit 2025</span>
+    <span class="hero-eyebrow">Dubai · Uganda · UAE ↔ East Africa</span>
     <h1 class="hero-title">
       Royal Connect<br><em>Africa</em>
     </h1>
@@ -546,16 +554,16 @@
         <h2 class="section-title" style="color:var(--text); margin-bottom:28px;">
           Two worlds.<br><em style="color:var(--clay)">One vision.</em>
         </h2>
-        <p>Dubai recorded <strong>18.72 million overnight visitors in 2024</strong> — up 9% year-on-year. The UAE–Africa Tourism Investment Summit 2025 gathered ministers and senior investors from across the continent. The corridor is active and growing fast.</p>
+        <p>Royal Connect Africa is building practical connections between the UAE and Uganda through travel planning, supplier verification, sourcing support, and market intelligence.</p>
         <p>Yet most travellers and operators in Dubai have <strong>no trusted partner</strong> with actual roots on both sides of that corridor. What has been missing is a reliable, experienced connector.</p>
         <p>Royal Connect Africa exists to close that gap — not from a distance, but from direct operational experience on both sides of the bridge.</p>
         <a href="#contact" class="btn-primary" style="margin-top:12px;">Get in Touch</a>
       </div>
       <div class="bridge-visual reveal reveal-2">
-        <div class="bridge-stat"><span class="bridge-val">18.7M</span><span class="bridge-label">Dubai Visitors · 2024</span></div>
-        <div class="bridge-stat"><span class="bridge-val">2025</span><span class="bridge-label">UAE–Africa Summit</span></div>
-        <div class="bridge-stat"><span class="bridge-val">3</span><span class="bridge-label">Revenue Lanes</span></div>
-        <div class="bridge-stat"><span class="bridge-val">∞</span><span class="bridge-label">Untapped Corridor</span></div>
+        <div class="bridge-stat"><span class="bridge-val">01</span><span class="bridge-label">Travel planning</span></div>
+        <div class="bridge-stat"><span class="bridge-val">02</span><span class="bridge-label">Supplier verification</span></div>
+        <div class="bridge-stat"><span class="bridge-val">03</span><span class="bridge-label">Sourcing support</span></div>
+        <div class="bridge-stat"><span class="bridge-val">04</span><span class="bridge-label">Market intelligence</span></div>
       </div>
     </div>
   </div>
@@ -672,7 +680,7 @@
         </li>
         <li style="display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(245,237,224,0.8);">
           <i data-lucide="check-circle" style="width:16px;height:16px;color:var(--gold);flex-shrink:0;"></i>
-          Verified Mineral Sourcing
+          Supplier verification (scope confirmed per enquiry)
         </li>
       </ul>
       <form id="trade-form" action="https://formspree.io/f/mnjggnyl" method="POST" style="display:flex;flex-direction:column;gap:14px;">
@@ -709,51 +717,19 @@
       <img src="assets/images/dubai-souq.jpg" style="width:100%;height:100%;object-fit:cover;opacity:0.55;" alt="Dubai souq">
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(26,15,6,0.3);">
         <div style="text-align:center;">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:var(--gold);line-height:1;">100%</div>
-          <div style="font-size:10px;letter-spacing:0.35em;text-transform:uppercase;color:var(--sand);margin-top:6px;">Direct Trade</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--gold);line-height:1.1;">UAE ↔ Uganda</div>
+          <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sand);margin-top:10px;">Sourcing and verification by enquiry</div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<section id="ai-inquiry" class="responsive-section" style="background: var(--cream);">
-  <div style="max-width:860px; margin:0 auto;">
-    <div class="reveal" style="text-align:center;margin-bottom:48px;">
-      <span class="section-label" style="color:var(--terra);">Powered by Intelligence</span>
-      <h2 class="section-title" style="color:var(--text);">AI-Powered <em style="color:var(--clay);">Inquiry</em></h2>
-      <p style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--muted);margin-top:12px;">Instant tailored safari plans or trade proposals — rooted in legacy.</p>
-    </div>
-    <div class="reveal reveal-1" style="background:white;border:1px solid rgba(26,15,6,0.08);border-radius:2px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.08);">
-      <div style="display:flex;border-bottom:1px solid rgba(26,15,6,0.08);" role="tablist">
-        <button id="tab-safari" data-mode="safari" class="tab-btn" role="tab" aria-selected="true"
-          style="flex:1;padding:20px;font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;background:none;border:none;border-bottom:3px solid var(--terra);color:var(--terra);cursor:pointer;transition:all 0.2s;">
-          Safari Planner
-        </button>
-        <button id="tab-trade" data-mode="trade" class="tab-btn" role="tab" aria-selected="false"
-          style="flex:1;padding:20px;font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;background:none;border:none;border-bottom:3px solid transparent;color:var(--muted);cursor:pointer;transition:all 0.2s;">
-          Trade Inquiry
-        </button>
-      </div>
-      <div class="ai-panel" style="padding:40px 48px;">
-        <form id="ai-form">
-          <textarea id="ai-query" rows="5"
-            style="width:100%;padding:20px;border:1px solid rgba(26,15,6,0.12);border-radius:1px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:300;color:var(--text);background:var(--warm);outline:none;resize:vertical;transition:border-color 0.2s;"
-            placeholder="Describe your safari dates, group size, or trade requirements..."></textarea>
-          <button type="submit" id="ai-generate"
-            style="width:100%;margin-top:16px;padding:18px;background:var(--earth);color:var(--cream);border:none;border-radius:1px;font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:10px;">
-            <span>Generate Draft</span>
-            <span id="ai-loader" style="display:none;width:16px;height:16px;border:2px solid rgba(245,237,224,0.4);border-top-color:var(--cream);border-radius:50%;animation:spin 0.8s linear infinite;"></span>
-          </button>
-        </form>
-        <div id="ai-result" style="display:none;margin-top:28px;padding:28px;background:var(--warm);border:1px solid rgba(26,15,6,0.08);border-radius:1px;" aria-live="polite">
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:16px;">
-            <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--text);">Your Draft</h3>
-            <button id="ai-copy" style="font-size:12px;color:var(--muted);background:none;border:none;cursor:pointer;">📋 Copy</button>
-          </div>
-          <div id="ai-result-text" style="font-size:14px;color:var(--muted);line-height:1.8;white-space:pre-wrap;"></div>
-        </div>
-      </div>
-    </div>
+<section id="ai-inquiry" class="responsive-section" style="background:var(--cream);">
+  <div style="max-width:860px;margin:0 auto;text-align:center;">
+    <span class="section-label">Start here</span>
+    <h2 class="section-title" style="color:var(--text);">A clear brief gets <em style="color:var(--clay);">better answers</em></h2>
+    <p style="max-width:620px;margin:18px auto 30px;color:var(--muted);line-height:1.8;">The automated AI planner is not connected to a live service. Tell us what you need through the contact form or WhatsApp and we will confirm what can be delivered before you commit.</p>
+    <div class="hero-actions"><a href="#contact" class="btn-primary">Send an enquiry</a><a href="https://wa.me/971544392894" class="btn-outline" target="_blank" rel="noopener">WhatsApp RCA</a></div>
   </div>
 </section>
 <section id="contact" class="dark responsive-section" style="position:relative; overflow:hidden;">
@@ -816,7 +792,7 @@
         <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell us what you have in mind..." required></textarea></div>
         <button type="submit" class="btn-primary" style="width:100%;justify-content:center;border:none;font-family:'Outfit',sans-serif;">Send Message</button>
         <div id="contact-success" style="display:none;margin-top:14px;padding:14px;background:rgba(74,124,89,0.14);border:1px solid rgba(74,124,89,0.3);border-radius:1px;text-align:center;font-size:12px;color:var(--sage);">
-          ✓ Message received. We'll respond within 24 hours.
+          ✓ Message received. We'll confirm the next step directly.
         </div>
         <p style="font-size:10px;color:var(--muted);text-align:center;margin-top:12px;opacity:0.6;">
           Or reach directly via <a href="https://wa.me/971544392894" target="_blank" style="color:var(--sand);text-decoration:none;">WhatsApp ↗</a>
@@ -912,6 +888,25 @@
   document.addEventListener('DOMContentLoaded', () => {
     if (typeof lucide !== 'undefined') lucide.createIcons();
   });
+  (() => {
+    const menuButton=document.getElementById('mobile-menu-btn'),menu=document.getElementById('mobile-menu');
+    if(menuButton&&menu){
+      const setMenu=open=>{menu.classList.toggle('hidden',!open);menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Close navigation':'Open navigation');menuButton.querySelector('span').textContent=open?'×':'☰';};
+      menuButton.addEventListener('click',()=>setMenu(menuButton.getAttribute('aria-expanded')!=='true'));
+      menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>setMenu(false)));
+      document.addEventListener('keydown',event=>{if(event.key==='Escape')setMenu(false);});
+    }
+    ['contact-form','trade-form'].forEach(formId=>{
+      const form=document.getElementById(formId);if(!form)return;
+      form.querySelectorAll('label').forEach((label,index)=>{
+        const field=label.parentElement.querySelector('input:not([type=hidden]),select,textarea');if(!field)return;
+        if(!field.id)field.id=formId+'-field-'+(index+1);label.htmlFor=field.id;
+      });
+      const status=form.querySelector('#contact-success')||form.querySelector('#trade-status');
+      if(status){status.setAttribute('role','status');status.setAttribute('aria-live','polite');}
+    });
+    document.querySelectorAll('img').forEach(img=>{if(!img.closest('.hero-photo')&&!img.closest('.nav-logo-mark'))img.loading='lazy';img.decoding='async';});
+  })();
 </script>
 </body>
 </html>
