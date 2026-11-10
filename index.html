@@ -861,8 +861,18 @@
           contactForm.reset();
           document.getElementById('contact-success').style.display = 'block';
           btn.style.display = 'none';
-        } else { btn.textContent = 'Message not sent — please use WhatsApp or email.'; btn.disabled = false; }
-      } catch { btn.textContent = 'Failed — try WhatsApp'; btn.disabled = false; }
+        } else {
+          const status = document.getElementById('contact-success');
+          status.style.display = 'block'; status.style.background = 'rgba(193,98,42,0.12)';
+          status.style.color = 'var(--terra)'; status.textContent = 'Message not sent. Please contact RCA by WhatsApp or email.';
+          btn.textContent = 'Try again'; btn.disabled = false;
+        }
+      } catch {
+        const status = document.getElementById('contact-success');
+        status.style.display = 'block'; status.style.background = 'rgba(193,98,42,0.12)';
+        status.style.color = 'var(--terra)'; status.textContent = 'Connection issue. Please contact RCA by WhatsApp or email.';
+        btn.textContent = 'Try again'; btn.disabled = false;
+      }
     });
   }
   const tradeForm = document.getElementById('trade-form');
@@ -878,8 +888,16 @@
           tradeForm.reset();
           status.style.color = 'var(--sage)';
           status.textContent = '✓ Request received. We\'ll confirm the next step directly.';
-        } else { btn.textContent = orig; btn.disabled = false; }
-      } catch { btn.textContent = orig; btn.disabled = false; }
+        } else {
+          status.style.color = 'var(--terra)';
+          status.textContent = 'Request not sent. Please use WhatsApp or email.';
+          btn.textContent = orig; btn.disabled = false;
+        }
+      } catch {
+        status.style.color = 'var(--terra)';
+        status.textContent = 'Connection issue. Please use WhatsApp or email.';
+        btn.textContent = orig; btn.disabled = false;
+      }
     });
   }
   document.addEventListener('DOMContentLoaded', () => {
