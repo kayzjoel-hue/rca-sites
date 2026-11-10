@@ -1,42 +1,45 @@
-# RCA v2 deployment checklist
+# RCA deployment and release gates
 
-## Local preflight
+## Current Phase 1 boundary (2026-11-10)
 
-- [x] Root, booking, and trade HTML routes exist.
-- [x] Static routes parse and return successfully from a local server.
-- [x] API JavaScript parses.
-- [x] Secrets and generated dependency folders are ignored.
-- [ ] Replace the four `REPLACE_WITH_*` values with verified production endpoints.
+- Phase 1 work is isolated to `kaizrug/rca-phase1-preview-2026-11-10`.
+- The homepage now provides an accessible mobile menu and an honest enquiry path instead of claiming an active AI planner.
+- Booking and trade pages explicitly state that online booking, payment, catalogue embed, and automated trade form are not configured.
+- The site does not have verified Formspree → Make → KX-DB-15 lead routing.
+- No external submissions, payment transactions, or production deployment are authorized in this phase.
+- Do not merge this branch or promote a production deployment without separate human authorization.
+- PR #4 (RCA Atlas) is independent and must remain untouched.
 
-## External integrations
+## Preview validation checklist
 
-### Booking
+- [ ] Confirm preview deployment exists for the exact PR head SHA.
+- [ ] Verify homepage, `/booking/`, and `/trade/` return successfully.
+- [ ] Test navigation at 320, 375, 390, 430, 768, 1024, and desktop widths.
+- [ ] Test keyboard focus, menu expanded state, Escape close, and link close.
+- [ ] Test reduced-motion preference.
+- [ ] Check no horizontal overflow, clipped controls, or inaccessible contrast.
+- [ ] Confirm the AI planner is not presented as functional.
+- [ ] Confirm no placeholder Calendly, Stripe, Drive, or Formspree URLs remain actionable.
+- [ ] Review public service copy against the current RCA Services Catalog.
+- [ ] Check forms without submitting externally; a separately authorized test is required to verify delivery.
+- [ ] Check browser console and network errors.
+- [ ] Record preview URL, commit SHA, test date, viewport, and evidence in KX-DB-10.
 
-- [ ] Set the real Calendly event URL in `booking/index.html`.
-- [ ] Set the real Stripe Payment Link in `booking/index.html`.
-- [ ] Configure Stripe webhook delivery for successful payments.
-- [ ] Map the webhook to KX-DB-10 with date, currency, gross, fees, net, reference, and reconciliation status.
-- [ ] Test one successful payment in test mode before enabling live mode.
+## Integration gates — not authorized in Phase 1
 
-### Trade
+- [ ] Obtain separate approval before configuring or testing Formspree.
+- [ ] Obtain separate approval before any Make/Zapier workflow changes.
+- [ ] Verify KX-DB-11 state and permissions before considering any integration.
+- [ ] Add human review and duplicate prevention before any KX-DB-15 write.
+- [ ] Obtain separate approval for AI backend credentials, endpoints, and data handling.
+- [ ] Obtain separate approval for Calendly, Stripe, payment, or webhook configuration.
+- [ ] Verify supplier, travel, pricing, legal, and delivery claims before publishing them.
 
-- [ ] Set the verified Google Drive PDF file ID in `trade/index.html`.
-- [ ] Set the approved Formspree endpoint in `trade/index.html`.
-- [ ] Connect Formspree to Make → Notion KX-DB-11.
-- [ ] Keep human approval before quotes, commitments, or shipment instructions.
-- [ ] Submit one test inquiry and verify the complete record path.
+## Production release — not authorized in Phase 1
 
-### AI Concierge
-
-- [ ] Add `GEMINI_API_KEY` only as a hosting-provider secret.
-- [ ] Verify `GET /api/health` reports `apiKeyConfigured: true` without exposing the key.
-- [ ] Test both `safari` and `trade` modes.
-- [ ] Confirm invalid, oversized, upstream-error, and missing-key responses are visible to the caller.
-
-## Git and hosting
-
-- [ ] Review `git diff --cached` and confirm no `.env`, credentials, exports, or `node_modules`.
-- [ ] Push the project root to the intended repository.
-- [ ] Configure the hosting project with this folder as the deployment root.
-- [ ] Verify `/`, `/booking/`, `/trade/`, and `/api/health` after deployment.
-- [ ] Recheck the canonical URL and redirect/rewrite behavior.
+- [ ] Human approval to merge.
+- [ ] Human approval to deploy production.
+- [ ] Confirm Cloudflare production project, branch, build settings, and canonical domain.
+- [ ] Verify deployed SHA equals the approved main commit.
+- [ ] Run post-deploy smoke tests and retain evidence.
+- [ ] Update source-of-truth records only after independent verification.
