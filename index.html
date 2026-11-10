@@ -381,6 +381,9 @@
 
     @media (max-width: 768px) {
       nav {
+        position: absolute;
+        top: 0;
+        left: 0;
         min-height: 68px;
         padding: 14px 18px;
         background: rgba(26,15,6,0.94);
@@ -391,6 +394,7 @@
       .nav-logo { gap: 9px; font-size: clamp(15px, 4.2vw, 19px); }
       .nav-logo-mark { width: 32px; height: 32px; flex: 0 0 32px; }
       .responsive-section { padding: 72px 20px !important; }
+      .ai-panel { padding: 24px 20px !important; }
       .journeys-grid,
       .entry-grid,
       .trade-layout,
@@ -730,7 +734,7 @@
           Trade Inquiry
         </button>
       </div>
-      <div style="padding:40px 48px;">
+      <div class="ai-panel" style="padding:40px 48px;">
         <form id="ai-form">
           <textarea id="ai-query" rows="5"
             style="width:100%;padding:20px;border:1px solid rgba(26,15,6,0.12);border-radius:1px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:300;color:var(--text);background:var(--warm);outline:none;resize:vertical;transition:border-color 0.2s;"
